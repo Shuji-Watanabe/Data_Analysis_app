@@ -25,9 +25,9 @@ if tub_dict[selected_cbox] == 0 :
     select_str = st.selectbox("分析に使用するデータを選択してください．",select_data_dict.keys())
     if select_data_dict[select_str] == 0:
         try :
-            data_df = pd.read_csv("sample_datas/cross_data.csv")
+            data_df = pd.read_csv("sample_datas/cross_data01.csv")
         except:
-            data_df = pd.read_csv("programfile/sample_datas/cross_data.csv")
+            data_df = pd.read_csv("programfile/sample_datas/cross_data01.csv")
 
     if st.checkbox("データの表示"):
         st.dataframe(data_df )
