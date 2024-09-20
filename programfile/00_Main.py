@@ -21,7 +21,7 @@ st.subheader("ダウンロード方法",divider="rainbow")
 
 import os 
 path = os.getcwd()
-if path == '/mount/src/kit-msec-watanabe':
+if path == '/mount/src/data_analysis_app':
     location_str = "github"
 else:
     location_str = "local"
