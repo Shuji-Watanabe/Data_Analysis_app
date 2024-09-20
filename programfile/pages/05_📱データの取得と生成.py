@@ -48,7 +48,7 @@ ___
 
 
 if path == '/mount/src/kit-msec-watanabe':
-    tmp_file_path = "2024年第2回高大連携定例研究会/sample_datas/"
+    tmp_file_path = "programfile/sample_datas/"
 else:
     tmp_file_path = "sample_datas/"
 

@@ -41,9 +41,9 @@ else:
 
 # location_str == 'github'はStreamlitのCommunity Cloudを利用する場合のファイルパス
 if location_str == 'github' :
-    image_path1 = "2024年第2回高大連携定例研究会/media/sample_im01.jpeg"
-    image_path2 = "2024年第2回高大連携定例研究会/media/sample_im02.jpeg"
-    image_path3 = "2024年第2回高大連携定例研究会/media/sample_im03.jpeg"
+    image_path1 = "programfile/media/sample_im01.jpeg"
+    image_path2 = "programfile/media/sample_im02.jpeg"
+    image_path3 = "programfile/media/sample_im03.jpeg"
 else :
     image_path1 = "media/sample_im01.jpeg"
     image_path2 = "media/sample_im02.jpeg"
@@ -86,9 +86,9 @@ if st.checkbox("ソースコード表示",key="data_show_code_disp1") :
 
             # location_str == 'github'はStreamlitのCommunity Cloudを利用する場合のファイルパス
             if location_str == 'github' :
-                image_path1 = "2024年第2回高大連携定例研究会/media/sample_im01.jpeg"
-                image_path2 = "2024年第2回高大連携定例研究会/media/sample_im02.jpeg"
-                image_path3 = "2024年第2回高大連携定例研究会/media/sample_im03.jpeg"
+                image_path1 = "programfile/media/sample_im01.jpeg"
+                image_path2 = "programfile/media/sample_im02.jpeg"
+                image_path3 = "programfile/media/sample_im03.jpeg"
             else :
                 image_path1 = "media/sample_im01.jpeg"
                 image_path2 = "media/sample_im02.jpeg"
@@ -131,7 +131,7 @@ st.header("2. st.video を利用した動画の表示方法",divider='rainbow')
 #ファイルパスの設定
 # location_str == 'github'はStreamlitのCommunity Cloudを利用する場合のファイルパス
 if location_str == 'github' :
-    video_path1 = "2024年第2回高大連携定例研究会/media/sample_mov02.MOV"
+    video_path1 = "programfile/media/sample_mov02.MOV"
 else:
     video_path1 = "media/sample_mov02.MOV"
 
@@ -145,7 +145,7 @@ if st.checkbox("ソースコード表示",key="data_show_code_disp2") :
             # location_str == 'github'はStreamlitのCommunity Cloudを利用する場合のファイルパス
             ### location_str は『1. st.image を利用した画像の表示方法』にて設定した変数
             if location_str == 'github' :
-                video_path1 = "2024年第2回高大連携定例研究会/media/sample_mov02.MOV"
+                video_path1 = "programfile/media/sample_mov02.MOV"
             else:
                 video_path1 = "media/sample_mov02.MOV"
 
@@ -171,7 +171,7 @@ st.header("2. st.audio を利用した動画の表示方法",divider='rainbow')
 #ファイルパスの設定
 # location_str == 'github'はStreamlitのCommunity Cloudを利用する場合のファイルパス
 if location_str == 'github' :
-    audio_path1 = "2024年第2回高大連携定例研究会/media/sample_audio01.aac"
+    audio_path1 = "programfile/media/sample_audio01.aac"
 else:
     audio_path1 = "media/sample_audio01.aac"
 
@@ -189,7 +189,7 @@ if st.checkbox("ソースコード表示",key="data_show_code_disp3") :
             #ファイルパスの設定
             # location_str == 'github'はStreamlitのCommunity Cloudを利用する場合のファイルパス
             if location_str == 'github' :
-                audio_path1 = "2024年第2回高大連携定例研究会/media/sample_audio01.aac"
+                audio_path1 = "programfile/media/sample_audio01.aac"
             else:
                 audio_path1 = "media/sample_audio01.aac"
             #st: st.videoによる画像の表示

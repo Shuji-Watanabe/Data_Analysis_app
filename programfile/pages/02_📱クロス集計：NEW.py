@@ -27,7 +27,7 @@ if tub_dict[selected_cbox] == 0 :
         try :
             data_df = pd.read_csv("sample_datas/cross_data.csv")
         except:
-            data_df = pd.read_csv("2024年第2回高大連携定例研究会/sample_datas/cross_data.csv")
+            data_df = pd.read_csv("programfile/sample_datas/cross_data.csv")
 
     if st.checkbox("データの表示"):
         st.dataframe(data_df )

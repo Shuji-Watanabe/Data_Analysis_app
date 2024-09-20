@@ -87,7 +87,7 @@ __参考資料__
 try :
     df = pd.read_csv('sample_datas/GPS_Data.csv')
 except:
-    df = pd.read_csv('2024年第2回高大連携定例研究会/sample_datas/GPS_Data.csv')
+    df = pd.read_csv('programfile/sample_datas/GPS_Data.csv')
 # dfのキー（列名）を取得
 df_key_list = df.keys()
 
@@ -150,7 +150,7 @@ if st.checkbox("ソースコード表示",key="show_code_disp2") :
             try :
                 df = pd.read_csv('sample_datas/GPS_Data.csv')
             except:
-                df = pd.read_csv('2024年第2回高大連携定例研究会/sample_datas/GPS_Data.csv')
+                df = pd.read_csv('programfile/sample_datas/GPS_Data.csv')
             # dfのキー（列名）を取得
             df_key_list = df.keys()
 
