@@ -1,9 +1,10 @@
-streamlit==1.26.0
+streamlit==1.28.0
 sympy
 pandas
 numpy
 plotly
 seaborn
+matplotlib
 pingouin
 streamlit_folium
 folium
