@@ -109,16 +109,28 @@ elif tub_dict[selected_cbox] == 1 :
     #### 2. クロス集計(多重クロス集計)の実行
     """
     keys_list = list(data_df.keys())
-    input_col = st.columns([1,1,1])
+    input_col = st.columns([1,1])
     with input_col[0]:
-        index_list = st.multiselect("表側として利用するデータを選択",keys_list ,key="4")
-    with input_col[1]:
-        columns_list = st.multiselect("表頭として利用するデータを選択",keys_list ,key="5") 
-    with input_col[2]:
-        values_list = st.multiselect("集計するデータを選択",keys_list ,key="6") 
+        index_list = st.multiselect("表側として利用するデータを選択",keys_list, key="1" )
+        if not index_list:
+            st.error('表側となるデータが指定されていません', icon="⚠️")
+            st.stop()
+        else :
+            with input_col[1]:
+                keys_list_col = sorted(set(keys_list).difference(set(index_list)))
+                columns_list = st.multiselect("表頭として利用するデータを選択",keys_list_col,key="2" ) 
+                if not columns_list:
+                    st.error('表頭となるデータが指定されていません', icon="⚠️")
+                    st.stop() 
 
+    """#### オプション """
+    tmp_col = st.columns([1,1])
+    with tmp_col[0]:
+        pd.options.display.precision = st.number_input(label="小数点以下の表示桁数",min_value=0,value=0)
+    with tmp_col[1]:
+        tmp_nan_str = st.text_input(label="`NaN`を埋める文字または数値を入力",value="--")
 
-    if st.button("クロス集計の実行",key="button 2"):
+    if st.button("クロス集計の実行",key="button 1"):
         # エラーチェック
         if not index_list:
             st.error('表側となるデータが指定されていません', icon="⚠️")
@@ -126,22 +138,13 @@ elif tub_dict[selected_cbox] == 1 :
         if not columns_list:
             st.error('表頭となるデータが指定されていません', icon="⚠️")
             st.stop() 
-        if not values_list:
-            st.error('集計されるデータが指定されていません', icon="⚠️")
-            st.stop()
 
-        if len(set(index_list) & set(columns_list)) != 0:
-            st.error('同じデータを表側，表頭で用いています．表側，表頭は別のデータを用いるように設定を変更してください．', icon="⚠️")
-            st.stop()
-        if len(set(index_list) & set(values_list)) != 0:
-            st.error('同じデータを表側，集計で用いています．表側，集計は別のデータを用いるように設定を変更してください．', icon="⚠️")
-            st.stop()
-        if len(set(columns_list) & set(values_list)) != 0:
-            st.error('同じデータを表頭，集計で用いています．表頭，集計は別のデータを用いるように設定を変更してください．', icon="⚠️")
-            st.stop()
+
 
         """#### 集計結果"""
-        cross_df = data_df.pivot_table(index=index_list,columns=columns_list,values=values_list)
+        """次の結果は，表頭，表側に該当するサンプルの個数をカウントしたものです"""        
+        cross_df = pd.crosstab(index=[data_df[name] for name in index_list],columns=[data_df[name] for name in columns_list]).fillna(tmp_nan_str)
         st.table(cross_df )
+            
         downloadfile_csv = cross_df.to_csv().encode('shift_jis')
         st.download_button(label="集計結果のダウンロード",data=downloadfile_csv ,file_name="outfile_cross.csv",mime="text/csv")
