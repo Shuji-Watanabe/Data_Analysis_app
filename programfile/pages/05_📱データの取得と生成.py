@@ -48,6 +48,7 @@ def disp_function(index,tmp_array,ntri=10):
 ___
 """
 
+st.write(path)
 
 if path == '/mount/src/kit-msec-watanabe':
     tmp_file_path = "programfile/sample_datas/"
