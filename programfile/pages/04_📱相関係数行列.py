@@ -5,7 +5,7 @@ import seaborn as sns
 import itertools
 
 
-import lib.display 
+import libs.display 
 
 """# 相関係数行列"""
 
@@ -86,7 +86,7 @@ if tub_dict[selected_cbox] == 0 :
                 
             tmp_corrs_df = pd.DataFrame(corrs_list,columns=["label 1","label 2","corr."])
             tmp_corrs_df = tmp_corrs_df.sort_values("corr.",ascending=False)
-            tmp_corrs_df["Explanetion"] = [lib.display.explanation_corr(x) for x in tmp_corrs_df["corr."] ]
+            tmp_corrs_df["Explanetion"] = [libs.display.explanation_corr(x) for x in tmp_corrs_df["corr."] ]
             
             with st.expander("相関係数の解釈"):
                 st.dataframe(tmp_corrs_df)
@@ -162,7 +162,7 @@ elif tub_dict[selected_cbox] == 1 :
                 
             tmp_corrs_df = pd.DataFrame(corrs_list,columns=["label 1","label 2","corr."])
             tmp_corrs_df = tmp_corrs_df.sort_values("corr.",ascending=False)
-            tmp_corrs_df["Explanetion"] = [lib.display.explanation_corr(x) for x in tmp_corrs_df["corr."] ]
+            tmp_corrs_df["Explanetion"] = [libs.display.explanation_corr(x) for x in tmp_corrs_df["corr."] ]
             
 
             with st.expander("相関係数の解釈"):
