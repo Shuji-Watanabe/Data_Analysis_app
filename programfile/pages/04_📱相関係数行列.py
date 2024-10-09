@@ -34,6 +34,7 @@ if tub_dict[selected_cbox] == 0 :
         #デモデータ『hist_data01.csv』の読み込み 
         try :
             read_data_df = pd.read_csv("sample_datas/scatter_data01.csv",encoding='shift_jis')
+            read_data_df = pd.read_csv("sample_datas/scatter_data01.csv")
         except:
             read_data_df = pd.read_csv("programfile/sample_datas/scatter_data01.csv",encoding='shift_jis')
     else :
@@ -108,7 +109,8 @@ elif tub_dict[selected_cbox] == 1 :
         st.error('データがアップロードされていません', icon="⚠️")
         st.stop()
     else:
-        read_data_df = pd.read_csv(uploaded_files,encoding='shift_jis')
+        read_data_df = pd.read_csv(uploaded_files)
+        # read_data_df = pd.read_csv(uploaded_files,encoding='shift_jis')
     
     st.warning('ここで計算される相関係数はピアソンの積率相関係数です．分析に使用するデータが適切かどうか，必ず確認してください．', icon="⚠️")
 

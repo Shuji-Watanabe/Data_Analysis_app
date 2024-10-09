@@ -28,9 +28,9 @@ if tub_dict[selected_cbox] == 0 :
     if select_data_dict[select_str] == 0:
         #デモデータ『hist_data01.csv』の読み込み 
         try :
-            read_data_df = pd.read_csv("sample_datas/hist_data01.csv",encoding='shift_jis')
+            read_data_df = pd.read_csv("sample_datas/hist_data01.csv")
         except:
-            read_data_df = pd.read_csv("programfile/sample_datas/hist_data01.csv",encoding='shift_jis')
+            read_data_df = pd.read_csv("programfile/sample_datas/hist_data01.csv")
 
     else :
         st.stop()
@@ -106,8 +106,10 @@ elif tub_dict[selected_cbox] == 1 :
     if not uploaded_files:
         st.error('データがアップロードされていません', icon="⚠️")
         st.stop()
-        read_data_df = pd.read_csv(uploaded_files,encoding='shift_jis')
-    
+    else:
+        read_data_df = pd.read_csv(uploaded_files)
+
+
     """___"""
     # 分析データ列の選択
     keys_list = list(read_data_df.keys())
