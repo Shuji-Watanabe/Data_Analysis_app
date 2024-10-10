@@ -106,8 +106,8 @@ elif tub_dict[selected_cbox] == 1 :
         st.error('データがアップロードされていません', icon="⚠️")
         st.stop()
     else:
-        read_data_df = pd.read_csv(uploaded_files,encoding='shift_jis')
-
+        # read_data_df = pd.read_csv(uploaded_files,encoding='shift_jis')
+        read_data_df = pd.read_csv(uploaded_files)
     """___"""
     # 分析データ列の選択
     keys_list = list(read_data_df.keys())

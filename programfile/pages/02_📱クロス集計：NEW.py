@@ -95,7 +95,7 @@ elif tub_dict[selected_cbox] == 1 :
         st.stop()
     
     else :
-        data_df = pd.read_csv(uploaded_files,encoding='shift_jis')
+        data_df = pd.read_csv(uploaded_files)
         check_num = 1
 
     if check_num == 1:
